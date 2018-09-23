@@ -20,10 +20,12 @@ app.use((req,res,next)=>{
     }
   });
   next();
-}) //register middleware
-app.use((req,res,next)=>{
-  res.render('maintenance.hbs');
 })
+//register middleware
+
+// app.use((req,res,next)=>{
+//   res.render('maintenance.hbs');
+// })
 
 
 hbs.registerHelper('getCurrentYear',()=>{
@@ -50,7 +52,9 @@ app.get('/bad',(req,res)=>{
   });
 });
 
-
+app.get('/projects',(req,res)=>{
+  res.render('projects.hbs')
+});
 
 app.listen(port,()=>{
   console.log('Server is up on port '+port);
